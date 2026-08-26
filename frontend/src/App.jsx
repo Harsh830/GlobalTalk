@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword
+} from "firebase/auth";
 import { auth } from "./firebase";
 function App() {
   const [showLogin, setShowLogin] = useState(false);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div className="app">
       <nav className="navbar">
@@ -122,26 +127,39 @@ function App() {
   <span>G</span>
   Continue with Google
 </button>
-
-            <div className="divider">
+ <div className="divider">
               <span>OR</span>
             </div>
 
             <input
-              type="email"
-              placeholder="Email address"
-            />
-
+  type="email"
+  placeholder="Email address"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+/>
             <input
-              type="password"
-              placeholder="Password"
-            />
-
-            <button className="primary-btn login-submit">
-              Sign In
-            </button>
+  type="password"
+  placeholder="Password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+/> 
+            <button
+  className="primary-btn login-submit"
+  onClick={async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      setShowLogin(false);
+    } catch (error) {
+      console.error(error);
+      alert("Login failed");
+    }
+  }}
+>
+  Sign In
+</button>
           </div>
         </div>
+      
       )}
 
       <footer>
