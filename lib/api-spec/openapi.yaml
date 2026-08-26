@@ -1,22 +1,22 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: GlobalTalk API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
-    description: Health operations
+  - name: app
+  - name: matchmaking
+  - name: safety
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,13 +24,416 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /app:
+    get:
+      operationId: getAppState
+      tags: [app]
+      summary: Get the current signed-in app state
+      responses:
+        "200":
+          description: App state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AppState"
+  /app/profile:
+    patch:
+      operationId: updateProfile
+      tags: [app]
+      summary: Update the current user's public profile and matching preferences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProfileUpdate"
+      responses:
+        "200":
+          description: Updated profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profile"
+  /discover:
+    get:
+      operationId: getDiscover
+      tags: [app]
+      summary: Get public global discovery content
+      responses:
+        "200":
+          description: Discovery content
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DiscoverResponse"
+  /history:
+    get:
+      operationId: getHistory
+      tags: [app]
+      summary: Get recent conversation history
+      responses:
+        "200":
+          description: Conversation history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HistoryItem"
+  /matchmaking:
+    post:
+      operationId: startMatchmaking
+      tags: [matchmaking]
+      summary: Enter the matchmaking queue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MatchPreferences"
+      responses:
+        "200":
+          description: Queue state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MatchState"
+    delete:
+      operationId: stopMatchmaking
+      tags: [matchmaking]
+      summary: Leave the matchmaking queue
+      responses:
+        "204":
+          description: Left queue
+  /matchmaking/status:
+    get:
+      operationId: getMatchmakingStatus
+      tags: [matchmaking]
+      summary: Get queue or active match state
+      responses:
+        "200":
+          description: Match state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MatchState"
+  /matches/{matchId}/messages:
+    get:
+      operationId: getMatchMessages
+      tags: [matchmaking]
+      summary: Get messages for a private match
+      parameters:
+        - $ref: "#/components/parameters/MatchId"
+      responses:
+        "200":
+          description: Messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Message"
+    post:
+      operationId: sendMatchMessage
+      tags: [matchmaking]
+      summary: Send a text message to the active match
+      parameters:
+        - $ref: "#/components/parameters/MatchId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MessageInput"
+      responses:
+        "201":
+          description: Message
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+  /matches/{matchId}/next:
+    post:
+      operationId: nextMatch
+      tags: [matchmaking]
+      summary: End the active match and find someone new
+      parameters:
+        - $ref: "#/components/parameters/MatchId"
+      responses:
+        "200":
+          description: New queue state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MatchState"
+  /matches/{matchId}/end:
+    post:
+      operationId: endMatch
+      tags: [matchmaking]
+      summary: End the active conversation
+      parameters:
+        - $ref: "#/components/parameters/MatchId"
+      responses:
+        "200":
+          description: Ended match
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HistoryItem"
+  /matches/{matchId}/report:
+    post:
+      operationId: reportUser
+      tags: [safety]
+      summary: Report the other participant
+      parameters:
+        - $ref: "#/components/parameters/MatchId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportInput"
+      responses:
+        "201":
+          description: Report created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Report"
+  /blocks:
+    get:
+      operationId: getBlockedUsers
+      tags: [safety]
+      summary: Get blocked users
+      responses:
+        "200":
+          description: Blocked users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BlockedUser"
+    post:
+      operationId: blockUser
+      tags: [safety]
+      summary: Block a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BlockInput"
+      responses:
+        "201":
+          description: Blocked user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlockedUser"
+  /blocks/{userId}:
+    delete:
+      operationId: unblockUser
+      tags: [safety]
+      summary: Unblock a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "204":
+          description: Unblocked
 components:
+  parameters:
+    MatchId:
+      name: matchId
+      in: path
+      required: true
+      schema: { type: string }
   schemas:
     HealthStatus:
       type: object
       properties:
-        status:
+        status: { type: string }
+      required: [status]
+    Profile:
+      type: object
+      required: [id, displayName, username, country, languagesSpoken, languagesLearning, interests, bio, status]
+      properties:
+        id: { type: string }
+        displayName: { type: string }
+        username: { type: string }
+        avatarUrl: { type: ["string", "null"] }
+        country: { type: string }
+        languagesSpoken:
+          type: array
+          items: { type: string }
+        languagesLearning:
+          type: array
+          items: { type: string }
+        interests:
+          type: array
+          items: { type: string }
+        bio: { type: string }
+        status: { type: string, enum: [active, suspended, banned] }
+        lastActiveAt: { type: string }
+    ProfileUpdate:
+      type: object
+      properties:
+        displayName: { type: string, minLength: 2, maxLength: 40 }
+        bio: { type: string, maxLength: 180 }
+        country: { type: string }
+        languagesSpoken:
+          type: array
+          items: { type: string }
+        languagesLearning:
+          type: array
+          items: { type: string }
+        interests:
+          type: array
+          items: { type: string }
+        preferredCountries:
+          type: array
+          items: { type: string }
+        preferredLanguages:
+          type: array
+          items: { type: string }
+        matchingMode:
           type: string
-      required:
-        - status
-
+          enum: [random, language_exchange, shared_interests, culture_exchange]
+    AppState:
+      type: object
+      required: [profile, stats, activeMatch, notifications]
+      properties:
+        profile: { $ref: "#/components/schemas/Profile" }
+        stats:
+          type: object
+          required: [conversations, countries, minutes]
+          properties:
+            conversations: { type: number }
+            countries: { type: number }
+            minutes: { type: number }
+        activeMatch:
+          type: ["object", "null"]
+          properties:
+            matchId: { type: string }
+            partner: { $ref: "#/components/schemas/Profile" }
+            prompt: { type: string }
+            connectedAt: { type: string }
+        notifications:
+          type: array
+          items: { $ref: "#/components/schemas/Notification" }
+    Notification:
+      type: object
+      required: [id, title, message, createdAt, read]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        message: { type: string }
+        createdAt: { type: string }
+        read: { type: boolean }
+    DiscoverResponse:
+      type: object
+      required: [countries, interests, headline]
+      properties:
+        headline: { type: string }
+        countries:
+          type: array
+          items: { $ref: "#/components/schemas/CountryCard" }
+        interests:
+          type: array
+          items: { type: string }
+    CountryCard:
+      type: object
+      required: [code, name, flag, conversationCount, description]
+      properties:
+        code: { type: string }
+        name: { type: string }
+        flag: { type: string }
+        conversationCount: { type: number }
+        description: { type: string }
+    MatchPreferences:
+      type: object
+      required: [countries, languages, interests, mode]
+      properties:
+        countries:
+          type: array
+          items: { type: string }
+        languages:
+          type: array
+          items: { type: string }
+        interests:
+          type: array
+          items: { type: string }
+        mode:
+          type: string
+          enum: [random, language_exchange, shared_interests, culture_exchange]
+    MatchState:
+      type: object
+      required: [status]
+      properties:
+        status: { type: string, enum: [idle, searching, found, connected] }
+        matchId: { type: ["string", "null"] }
+        partner:
+          anyOf:
+            - $ref: "#/components/schemas/Profile"
+            - type: "null"
+        prompt: { type: ["string", "null"] }
+        queuePosition: { type: ["number", "null"] }
+    Message:
+      type: object
+      required: [id, senderId, message, createdAt]
+      properties:
+        id: { type: string }
+        senderId: { type: string }
+        message: { type: string }
+        createdAt: { type: string }
+    MessageInput:
+      type: object
+      required: [message]
+      properties:
+        message: { type: string, minLength: 1, maxLength: 500 }
+    HistoryItem:
+      type: object
+      required: [id, date, country, durationMinutes, interests, partnerName]
+      properties:
+        id: { type: string }
+        date: { type: string }
+        country: { type: string }
+        durationMinutes: { type: number }
+        interests:
+          type: array
+          items: { type: string }
+        partnerName: { type: string }
+        hidden: { type: boolean }
+    ReportInput:
+      type: object
+      required: [reason]
+      properties:
+        reason:
+          type: string
+          enum: [harassment, spam, scam, hate_speech, threats, inappropriate_behavior, sexual_content, underage_concern, other]
+        description: { type: string, maxLength: 1000 }
+        blockUser: { type: boolean }
+    Report:
+      type: object
+      required: [id, reason, status, createdAt]
+      properties:
+        id: { type: string }
+        reason: { type: string }
+        status: { type: string, enum: [pending, resolved, dismissed] }
+        createdAt: { type: string }
+    BlockInput:
+      type: object
+      required: [userId]
+      properties:
+        userId: { type: string }
+    BlockedUser:
+      type: object
+      required: [userId, displayName, country, blockedAt]
+      properties:
+        userId: { type: string }
+        displayName: { type: string }
+        country: { type: string }
+        blockedAt: { type: string }

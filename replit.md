@@ -1,6 +1,6 @@
-# [Project name]
+# GlobalTalk
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+GlobalTalk helps adults meet people around the world through respectful, interest-led conversations.
 
 ## Run & Operate
 
@@ -22,23 +22,29 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/globaltalk` — responsive React/Vite app and public/authenticated route surface
+- `artifacts/api-server/src/routes/globaltalk.ts` — app, matchmaking, chat, history, and safety endpoints
+- `lib/api-spec/openapi.yaml` — source of truth for the API contract
+- `lib/db/src/schema/index.ts` — relational schema for users, profiles, matches, messages, blocks, and reports
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first build uses a safe demo session and in-memory route state so the product loop is immediately previewable; production identity and realtime credentials remain server-side configuration work.
+- The database schema is relational and ready for persistence, while LiveKit is intentionally not faked in the UI.
+- Public profile surfaces exclude private contact and location details by design.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Landing, signup/login, onboarding, matching preferences, discovery, matchmaking, conversation shell, history, profile, settings, messages, safety guidance, and report/block flows are available. API routes and database tables cover the core product loop.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+No additional preferences recorded.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Run API codegen after changing `lib/api-spec/openapi.yaml`.
+- LiveKit and managed identity must be configured before enabling production video and account authentication.
 
 ## Pointers
 

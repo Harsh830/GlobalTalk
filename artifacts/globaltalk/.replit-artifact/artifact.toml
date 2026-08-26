@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "GlobalTalk"
+description = "A safety-first international conversation platform where adults meet people around the world through language exchange, shared interests, and live conversations."
+version = "1.0.0"
+id = "artifacts/globaltalk"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20873
+
+[services.development]
+run = "pnpm --filter @workspace/globaltalk run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/globaltalk", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/globaltalk/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20873"
+BASE_PATH = "/"

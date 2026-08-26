@@ -1,0 +1,1 @@
+- [OpenAPI integer compatibility](zod-openapi-integer-compatibility.md) — use number unless the generated Zod runtime supports zod.int in lockstep.

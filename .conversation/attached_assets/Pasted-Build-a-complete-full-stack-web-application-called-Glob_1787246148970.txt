@@ -1,0 +1,1521 @@
+Build a complete full-stack web application called "GlobalTalk".
+
+GlobalTalk is a modern international random video-chat platform where adults can meet and have live video conversations with people from different countries around the world.
+
+IMPORTANT:
+This must be a REAL working full-stack web application, not a static website or UI prototype.
+
+The application must include:
+
+- Professional frontend
+- Functional backend
+- Database
+- Authentication
+- User profiles
+- Real-time matchmaking
+- Real-time video/audio
+- Text chat
+- Country and interest matching
+- Report system
+- Block system
+- User moderation
+- Admin dashboard
+- Responsive mobile/desktop design
+- Production-ready architecture
+
+==================================================
+BRAND
+==================================================
+
+App name:
+
+GlobalTalk
+
+Tagline:
+
+"Meet the world, one conversation at a time."
+
+Alternative tagline:
+
+"Talk beyond borders."
+
+Primary CTA:
+
+"START TALKING"
+
+Secondary CTA:
+
+"MEET THE WORLD"
+
+Brand personality:
+
+- Friendly
+- Global
+- Modern
+- Safe
+- Social
+- Fun
+- Trustworthy
+
+Do NOT make the website look like a copy of Omegle, OmeTV, Chatroulette, or any other existing platform.
+
+Create an original visual identity for GlobalTalk.
+
+==================================================
+1. CORE CONCEPT
+==================================================
+
+GlobalTalk allows users to meet people from different countries through live video conversations.
+
+A user:
+
+1. Creates an account.
+2. Selects their country.
+3. Selects languages they speak.
+4. Selects languages they want to practice.
+5. Selects interests.
+6. Selects preferred countries.
+7. Clicks "START TALKING".
+8. Enters the matchmaking queue.
+9. Gets matched with another eligible user.
+10. Joins a private video conversation.
+11. Can chat by text.
+12. Can skip to another person.
+13. Can report or block the other user.
+14. Can end the conversation.
+
+The experience should feel fast, simple and exciting.
+
+==================================================
+2. TARGET AUDIENCE
+==================================================
+
+Design GlobalTalk for adults who want to:
+
+- Meet people from other countries
+- Make international friends
+- Practice languages
+- Learn about different cultures
+- Talk about hobbies
+- Have casual conversations
+
+The platform is NOT designed for dating or sexual content.
+
+==================================================
+3. SAFETY
+==================================================
+
+Safety is a core feature.
+
+Implement:
+
+- Report button
+- Block button
+- Instant disconnect
+- User suspension
+- Permanent bans
+- Moderation dashboard
+- Abuse reporting
+- Community guidelines
+- Safety center
+- Rate limiting
+- Spam prevention
+- Basic profanity filtering
+- Suspicious activity detection
+- Account deletion
+- Privacy settings
+
+Do not record or store video/audio conversations by default.
+
+Do not expose:
+
+- IP addresses
+- Email addresses
+- Phone numbers
+- Exact GPS locations
+- Private account information
+
+Only show appropriate public information such as:
+
+- Display name
+- Country
+- Languages
+- Interests
+- Profile picture
+
+Users should be warned not to share:
+
+- Home address
+- Phone number
+- Passwords
+- Financial information
+- Government identification
+- Other sensitive information
+
+==================================================
+4. AGE REQUIREMENTS
+==================================================
+
+Design the platform for adults.
+
+Require users to confirm that they meet the minimum legal age required to use the service in their jurisdiction.
+
+Do not create features intended to facilitate sexual content, exploitation, or inappropriate interactions.
+
+Include:
+
+- Terms of Service
+- Privacy Policy
+- Community Guidelines
+- Safety Center
+- Contact page
+
+If reliable age verification cannot be implemented automatically, clearly mark it as a required pre-launch compliance feature instead of pretending that a simple checkbox provides reliable age verification.
+
+==================================================
+5. LANDING PAGE
+==================================================
+
+Create a beautiful premium landing page.
+
+Hero section:
+
+GLOBALTALK
+
+"Meet the world, one conversation at a time."
+
+Description:
+
+"Connect face-to-face with people from around the world. Discover new cultures, practice languages and have real conversations."
+
+Buttons:
+
+START TALKING
+
+EXPLORE GLOBALTALK
+
+Hero visual:
+
+Create an attractive world map/globe visual with animated connection lines between countries.
+
+Show floating country indicators such as:
+
+🇮🇳 India
+🇯🇵 Japan
+🇺🇸 USA
+🇬🇧 UK
+🇧🇷 Brazil
+🇩🇪 Germany
+🇫🇷 France
+🇰🇷 South Korea
+
+Do not imply that the displayed people are actually online unless that information comes from the backend.
+
+==================================================
+6. LANDING PAGE SECTIONS
+==================================================
+
+Section:
+
+"How GlobalTalk Works"
+
+Step 1:
+Choose your interests.
+
+Step 2:
+Find someone from around the world.
+
+Step 3:
+Start talking.
+
+Section:
+
+"Why GlobalTalk?"
+
+Cards:
+
+🌎
+Meet the World
+
+"Talk with people from different countries."
+
+🗣️
+Practice Languages
+
+"Improve your language skills through real conversations."
+
+🎮
+Shared Interests
+
+"Find people who enjoy the same things you do."
+
+💬
+Real Conversations
+
+"Move beyond likes and comments."
+
+🛡️
+Safety First
+
+"Tools to report, block and control your experience."
+
+Section:
+
+"Popular Interests"
+
+Gaming
+Music
+Movies
+Sports
+Travel
+Technology
+Food
+Culture
+Art
+Books
+Fitness
+Study
+Languages
+Photography
+Just Chatting
+
+Section:
+
+"Explore Different Cultures"
+
+Show country cards.
+
+Section:
+
+"Built for Real Conversations"
+
+Explain the mission of GlobalTalk.
+
+Footer:
+
+GlobalTalk
+Meet the world, one conversation at a time.
+
+Links:
+
+About
+Safety
+Community Guidelines
+Privacy
+Terms
+Contact
+
+==================================================
+7. AUTHENTICATION
+==================================================
+
+Create:
+
+Signup
+Login
+Logout
+Password reset
+
+Signup fields:
+
+- Display name
+- Email
+- Password
+- Country
+- Primary language
+- Age eligibility confirmation
+- Terms acceptance
+
+Optional:
+
+Google authentication.
+
+After signup:
+
+Create profile
+→ Choose interests
+→ Choose language preferences
+→ Go to Home
+
+==================================================
+8. USER PROFILE
+==================================================
+
+Create profile fields:
+
+- User ID
+- Display name
+- Username
+- Profile photo
+- Country
+- Languages spoken
+- Languages learning
+- Interests
+- Short bio
+- Account status
+- Created date
+- Last active time
+
+Allow users to edit:
+
+- Display name
+- Profile photo
+- Languages
+- Interests
+- Bio
+- Matching preferences
+
+Never show private information.
+
+==================================================
+9. HOME DASHBOARD
+==================================================
+
+Create a beautiful dashboard.
+
+Header:
+
+GlobalTalk logo
+
+Navigation:
+
+Home
+Discover
+History
+Messages
+Profile
+Safety
+
+Main headline:
+
+"Who will you meet today?"
+
+Subheading:
+
+"Choose what you're interested in and we'll find someone to talk to."
+
+Matching preferences:
+
+COUNTRY
+
+Any country
+
+or specific countries.
+
+LANGUAGE
+
+Any language
+
+or selected languages.
+
+INTERESTS
+
+Gaming
+Music
+Movies
+Sports
+Travel
+Technology
+Food
+Culture
+Art
+Books
+Study
+Languages
+Fitness
+Photography
+Just Chatting
+
+MATCHING MODE:
+
+Random
+Language Exchange
+Shared Interests
+Culture Exchange
+
+Primary button:
+
+START TALKING
+
+==================================================
+10. MATCHMAKING
+==================================================
+
+Implement real server-side matchmaking.
+
+When the user clicks START TALKING:
+
+1. Check authentication.
+2. Check account status.
+3. Check age eligibility.
+4. Check whether the user is already in a match.
+5. Check blocked users.
+6. Add the user to matchmaking queue.
+7. Search for compatible users.
+8. Create a match.
+9. Create a private video room.
+10. Generate secure video credentials.
+11. Send both users into the video room.
+
+Matching should consider:
+
+- Country preferences
+- Language preferences
+- Shared interests
+- Matching mode
+- User availability
+
+Matching priority:
+
+1. Preferred country + language + shared interests
+2. Language + shared interests
+3. Shared interests
+4. Compatible language
+5. Random eligible user
+
+Do not match users who have blocked each other.
+
+Do not immediately rematch users who just spoke unless necessary.
+
+==================================================
+11. MATCHING SCREEN
+==================================================
+
+When searching:
+
+Display:
+
+"Finding someone from around the world..."
+
+Animated globe.
+
+Show:
+
+Searching worldwide...
+
+Do NOT display private information.
+
+After a match:
+
+"Match Found! 🌎"
+
+Show:
+
+Country flag
+Display name
+Shared interests
+
+Button:
+
+"JOIN CONVERSATION"
+
+Automatically enter the video room after a short transition.
+
+==================================================
+12. VIDEO CHAT
+==================================================
+
+Use LiveKit for real-time WebRTC video and audio.
+
+Do NOT fake the video functionality.
+
+Create a proper LiveKit integration.
+
+Required functionality:
+
+- Join room
+- Leave room
+- Camera on/off
+- Microphone on/off
+- Participant connection handling
+- Participant disconnect handling
+- Secure server-side token generation
+- Connection status
+- Reconnection handling
+
+Never expose LiveKit API secrets in frontend code.
+
+Use environment variables.
+
+Video interface:
+
+Large remote video.
+
+Small local video preview.
+
+Bottom control bar:
+
+Microphone
+Camera
+Next
+End
+Report
+Block
+
+Top section:
+
+GlobalTalk
+
+Partner information:
+
+Display name
+Country flag
+Languages
+Shared interests
+
+Do not display exact location.
+
+==================================================
+13. VIDEO CHAT MOBILE DESIGN
+==================================================
+
+Desktop:
+
+Large video area
+Small local video
+Right-side chat panel
+
+Mobile:
+
+Full-screen remote video
+Floating local preview
+Bottom controls
+Chat opens as a drawer
+
+Make all controls touch-friendly.
+
+==================================================
+14. TEXT CHAT
+==================================================
+
+Create real-time text chat during active video conversations.
+
+Features:
+
+- Send message
+- Receive message
+- Message timestamps
+- Basic profanity filtering
+- Rate limiting
+- Report message
+
+Do not allow file uploads in the first version.
+
+Block dangerous links where appropriate.
+
+Only users participating in the match can access that match's messages.
+
+==================================================
+15. NEXT BUTTON
+==================================================
+
+The NEXT button is one of the most important features.
+
+When clicked:
+
+1. End current match.
+2. Leave current video room.
+3. Mark match as ended.
+4. Prevent immediate rematching.
+5. Add user back to matchmaking queue.
+6. Find another compatible user.
+7. Create a new room.
+8. Connect the user.
+
+Display:
+
+"Finding someone new..."
+
+==================================================
+16. END CONVERSATION
+==================================================
+
+When user clicks END:
+
+Show confirmation:
+
+"End this conversation?"
+
+Buttons:
+
+Continue Talking
+End Conversation
+
+After ending:
+
+Show:
+
+"Conversation ended."
+
+Buttons:
+
+START ANOTHER CHAT
+GO HOME
+
+==================================================
+17. REPORT SYSTEM
+==================================================
+
+Create report functionality.
+
+Report reasons:
+
+Harassment
+Spam
+Scam
+Hate speech
+Threats
+Inappropriate behavior
+Sexual content
+Underage concern
+Other
+
+Report form:
+
+Reason
+Optional description
+
+After reporting:
+
+Automatically disconnect the user if appropriate.
+
+Offer:
+
+BLOCK USER
+
+Save report to backend.
+
+==================================================
+18. BLOCK SYSTEM
+==================================================
+
+When a user blocks another:
+
+- End current conversation.
+- Disconnect video.
+- Add block record.
+- Prevent future matching.
+- Hide the blocked user's profile.
+
+Settings should contain:
+
+Blocked Users
+
+Allow:
+
+Unblock
+
+==================================================
+19. USER HISTORY
+==================================================
+
+Create a conversation history page.
+
+Show:
+
+- Date
+- Country
+- Duration
+- Shared interests
+
+Do NOT store video recordings.
+
+Allow users to:
+
+- Hide history
+- Report
+- Block
+
+==================================================
+20. DISCOVER PAGE
+==================================================
+
+Create an attractive Discover page.
+
+Show broad global information.
+
+Examples:
+
+People around the world are connecting.
+
+Country sections:
+
+🇮🇳 India
+🇯🇵 Japan
+🇺🇸 USA
+🇬🇧 UK
+🇧🇷 Brazil
+🇩🇪 Germany
+🇫🇷 France
+🇰🇷 South Korea
+🇨🇦 Canada
+🇦🇺 Australia
+
+Do not expose exact locations.
+
+Allow filtering by:
+
+Country
+Language
+Interest
+
+Primary CTA:
+
+"START TALKING"
+
+==================================================
+21. CONVERSATION PROMPTS
+==================================================
+
+Add an optional conversation prompt system.
+
+When two people connect, show a random conversation question.
+
+Examples:
+
+"What food should everyone try in your country?"
+
+"What is your favorite movie?"
+
+"What place in your country should tourists visit?"
+
+"What hobby do you wish you had more time for?"
+
+"What is something interesting about your culture?"
+
+Button:
+
+NEXT QUESTION
+
+Both users should see the same question.
+
+==================================================
+22. LANGUAGE EXCHANGE
+==================================================
+
+Create a special matching mode.
+
+Example:
+
+User A:
+
+Speaks:
+Hindi
+
+Learning:
+English
+
+User B:
+
+Speaks:
+English
+
+Learning:
+Hindi
+
+The matchmaking system should prioritize complementary language preferences.
+
+Display:
+
+"Language Exchange"
+
+Show both users' language goals.
+
+==================================================
+23. DATABASE
+==================================================
+
+Use a secure relational database.
+
+Create:
+
+users
+profiles
+user_preferences
+interests
+languages
+match_queue
+matches
+match_participants
+messages
+blocks
+reports
+bans
+moderation_actions
+notifications
+conversation_history
+
+Users:
+
+id
+email
+display_name
+username
+avatar_url
+country
+status
+role
+created_at
+updated_at
+last_seen_at
+
+Profiles:
+
+user_id
+bio
+languages_spoken
+languages_learning
+interests
+
+Preferences:
+
+user_id
+preferred_countries
+preferred_languages
+preferred_interests
+matching_mode
+
+Matches:
+
+id
+user_1_id
+user_2_id
+room_id
+started_at
+ended_at
+duration
+status
+
+Messages:
+
+id
+match_id
+sender_id
+message
+created_at
+
+Reports:
+
+id
+reporter_id
+reported_user_id
+match_id
+reason
+description
+status
+created_at
+resolved_at
+resolved_by
+
+Blocks:
+
+id
+blocker_id
+blocked_user_id
+created_at
+
+Bans:
+
+id
+user_id
+reason
+created_by
+created_at
+expires_at
+
+==================================================
+24. SECURITY
+==================================================
+
+Implement:
+
+- Secure authentication
+- Role-based authorization
+- Database access rules
+- Server-side validation
+- Protected API routes
+- Secure video token generation
+- Environment variables
+- Rate limiting
+- Abuse prevention
+- Admin protection
+
+Never expose:
+
+Passwords
+API secrets
+Private keys
+IP addresses
+Private user information
+
+==================================================
+25. ADMIN DASHBOARD
+==================================================
+
+Create:
+
+/admin
+
+Only admin users can access it.
+
+Dashboard:
+
+Total users
+Active users
+Online users
+Users matchmaking
+Active video sessions
+Reports today
+Pending reports
+Banned users
+
+Users:
+
+Search
+View
+Suspend
+Ban
+Unban
+
+Reports:
+
+View
+Filter
+Resolve
+Dismiss
+Warn
+Suspend
+Ban
+
+Moderation actions must be logged.
+
+==================================================
+26. ADMIN USER MANAGEMENT
+==================================================
+
+Admin can:
+
+Search users
+View public profile
+View account status
+Suspend account
+Ban account
+Unban account
+View reports involving user
+View moderation history
+
+Admin cannot see private video conversations because video/audio is not recorded.
+
+==================================================
+27. SAFETY CENTER
+==================================================
+
+Create a dedicated Safety Center.
+
+Include:
+
+"Stay Safe on GlobalTalk"
+
+Rules:
+
+Never share your password.
+Never share financial information.
+Don't share your home address.
+Don't send sensitive documents.
+Block users who make you uncomfortable.
+Report inappropriate behavior.
+Leave conversations that feel unsafe.
+
+Buttons:
+
+REPORT SOMEONE
+VIEW COMMUNITY GUIDELINES
+
+==================================================
+28. COMMUNITY GUIDELINES
+==================================================
+
+Create clear guidelines.
+
+Prohibited:
+
+Harassment
+Threats
+Hate speech
+Scams
+Spam
+Sexual content
+Exploitation
+Impersonation
+Illegal activity
+Sharing private information
+Attempts to bypass bans
+
+Make the guidelines easy to understand.
+
+==================================================
+29. SETTINGS
+==================================================
+
+Create settings page.
+
+Account:
+
+Edit profile
+Change password
+Delete account
+
+Privacy:
+
+Country visibility
+Language visibility
+Interest visibility
+
+Matching:
+
+Preferred countries
+Preferred languages
+Interests
+Matching mode
+
+Safety:
+
+Blocked users
+Report history
+
+Notifications:
+
+Enable/disable notifications
+
+==================================================
+30. NOTIFICATIONS
+==================================================
+
+Create notification infrastructure.
+
+Notifications may include:
+
+Match found
+New message
+Report status
+Account warning
+Account suspension
+
+Do not send unnecessary notifications.
+
+==================================================
+31. UI DESIGN
+==================================================
+
+Create an ORIGINAL design.
+
+Do not copy Omegle or OmeTV.
+
+Style:
+
+Modern
+Premium
+Friendly
+Global
+Clean
+
+Color palette:
+
+Deep navy:
+#0B1020
+
+Blue:
+#2563EB
+
+Purple:
+#7C3AED
+
+White:
+#FFFFFF
+
+Light background:
+#F8FAFC
+
+Success:
+#22C55E
+
+Danger:
+#EF4444
+
+Use:
+
+Rounded cards
+Modern typography
+Smooth transitions
+Subtle gradients
+Beautiful icons
+Responsive layouts
+
+The homepage should look like a real technology startup.
+
+==================================================
+32. LOGO
+==================================================
+
+Create a simple text-based GlobalTalk logo with a globe/conversation concept.
+
+Possible visual:
+
+🌎 + 💬
+
+Use the word:
+
+GlobalTalk
+
+Do not copy another company's logo.
+
+==================================================
+33. RESPONSIVE DESIGN
+==================================================
+
+Must work on:
+
+Desktop
+Laptop
+Tablet
+Mobile
+
+Test layouts around:
+
+375px
+768px
+1024px
+1440px
+
+The video-chat interface must be especially good on mobile.
+
+==================================================
+34. ERROR HANDLING
+==================================================
+
+Handle:
+
+Camera permission denied
+Microphone permission denied
+No match
+Connection failure
+Video connection lost
+User disconnects
+Server error
+Authentication failure
+Database failure
+Rate limit
+Banned account
+Suspended account
+
+Examples:
+
+"No one matching your preferences is available right now."
+
+"Your camera permission is required for video chat."
+
+"The connection was interrupted. Trying again..."
+
+"The other person left the conversation."
+
+==================================================
+35. PERFORMANCE
+==================================================
+
+Optimize for:
+
+Fast page loading
+Lazy loading
+Efficient database queries
+Minimal unnecessary API requests
+Responsive video
+Efficient matchmaking
+Mobile performance
+
+Do not load unnecessary resources on the landing page.
+
+==================================================
+36. SEO
+==================================================
+
+Optimize the public landing page.
+
+Title:
+
+GlobalTalk - Meet the World, One Conversation at a Time
+
+Description:
+
+"GlobalTalk lets you meet and talk with people from around the world through live video conversations, language exchange and shared interests."
+
+Add:
+
+Open Graph metadata
+Twitter/social metadata
+Favicon
+Structured metadata where appropriate
+Sitemap
+Robots configuration
+
+==================================================
+37. PAGES
+==================================================
+
+Create:
+
+/
+ /login
+ /signup
+ /onboarding
+ /home
+ /discover
+ /match
+ /chat
+ /history
+ /messages
+ /profile
+ /settings
+ /safety
+ /community-guidelines
+ /privacy
+ /terms
+ /contact
+ /admin
+
+==================================================
+38. NAVIGATION
+==================================================
+
+Desktop navigation:
+
+GlobalTalk logo
+
+Home
+Discover
+History
+Messages
+
+Profile menu:
+
+Profile
+Settings
+Safety
+Logout
+
+Primary button:
+
+START TALKING
+
+Mobile:
+
+Bottom navigation:
+
+Home
+Discover
+Start
+History
+Profile
+
+==================================================
+39. BACKEND API
+==================================================
+
+Create backend functionality for:
+
+Authentication
+Profiles
+Preferences
+Matchmaking
+Matches
+Video room creation
+Video token generation
+Messages
+Reports
+Blocks
+Bans
+Admin moderation
+
+Use secure server-side functions.
+
+==================================================
+40. ENVIRONMENT VARIABLES
+==================================================
+
+Use environment variables.
+
+Create placeholders:
+
+DATABASE_URL
+AUTH_SECRET
+LIVEKIT_URL
+LIVEKIT_API_KEY
+LIVEKIT_API_SECRET
+
+Never hardcode these values.
+
+Create clear README instructions explaining where each variable comes from.
+
+==================================================
+41. LIVEKIT
+==================================================
+
+Use LiveKit for real-time video/audio.
+
+Implement:
+
+Room creation
+Secure access tokens
+Participant joining
+Participant leaving
+Camera controls
+Microphone controls
+Connection state
+Reconnection
+Room cleanup
+
+Do not expose LIVEKIT_API_SECRET to the browser.
+
+==================================================
+42. TESTING
+==================================================
+
+Test the complete flow:
+
+Signup
+↓
+Login
+↓
+Onboarding
+↓
+Choose interests
+↓
+Start Talking
+↓
+Enter matchmaking queue
+↓
+Find another user
+↓
+Create match
+↓
+Join video room
+↓
+Video/audio works
+↓
+Text chat works
+↓
+Next works
+↓
+New match
+↓
+End conversation
+↓
+Report/block
+↓
+History updates
+
+Also test:
+
+Blocked users cannot match again.
+
+Banned users cannot use matchmaking.
+
+Two users cannot accidentally join unrelated rooms.
+
+Users cannot access another user's private messages.
+
+Normal users cannot access admin pages.
+
+==================================================
+43. MVP PRIORITY
+==================================================
+
+Build in this order.
+
+PHASE 1:
+
+Landing page
+Authentication
+User profiles
+Onboarding
+Database
+Basic matching
+Video chat
+Next button
+End conversation
+Report
+Block
+
+PHASE 2:
+
+Text chat
+Language exchange
+Conversation prompts
+History
+Discover
+Notifications
+
+PHASE 3:
+
+Admin dashboard
+Advanced moderation
+Analytics
+Improved matching
+Reputation system
+
+Do not sacrifice core functionality just to add many features.
+
+==================================================
+44. IMPORTANT DEVELOPMENT RULES
+==================================================
+
+Do not create fake buttons.
+
+Do not create fake video.
+
+Do not use hardcoded matchmaking.
+
+Do not use placeholder backend logic.
+
+Do not expose secrets.
+
+Do not create fake authentication.
+
+Do not pretend a feature works if it doesn't.
+
+If an external service requires an API key, create the integration correctly and provide setup instructions.
+
+If a feature cannot be fully implemented in the current environment, clearly identify what remains to be configured.
+
+==================================================
+45. FINAL QUALITY REQUIREMENT
+==================================================
+
+The final website should feel like a serious startup product.
+
+It should NOT look like a beginner project.
+
+The user experience should be:
+
+Open website
+↓
+Understand GlobalTalk immediately
+↓
+Sign up
+↓
+Choose interests/language
+↓
+Click START TALKING
+↓
+Find someone
+↓
+Start video conversation
+
+Keep this experience extremely simple.
+
+Brand:
+
+GLOBALTALK
+
+"Meet the world, one conversation at a time."
+
+Build the complete full-stack application now.
