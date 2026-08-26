@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth } from "./firebase";
 function App() {
   const [showLogin, setShowLogin] = useState(false);
 
@@ -106,10 +107,21 @@ function App() {
               Sign in to continue
             </p>
 
-            <button className="google-btn">
-              <span>G</span>
-              Continue with Google
-            </button>
+            <button
+  className="google-btn"
+  onClick={async () => {
+    try {
+      await signInWithPopup(auth, new GoogleAuthProvider());
+      setShowLogin(false);
+    } catch (error) {
+      console.error(error);
+      alert("Google login failed");
+    }
+  }}
+>
+  <span>G</span>
+  Continue with Google
+</button>
 
             <div className="divider">
               <span>OR</span>
