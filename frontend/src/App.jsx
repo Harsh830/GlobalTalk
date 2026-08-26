@@ -1,242 +1,142 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function App() {
+function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
-    <div style={styles.app}>
-      <nav style={styles.navbar}>
-        <div style={styles.logo}>🌍 GlobalTalk</div>
+    <div className="app">
+      <nav className="navbar">
+        <div className="logo">🌍 GlobalTalk</div>
 
-        <div style={styles.navLinks}>
+        <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#features">Features</a>
-          <button style={styles.loginButton}>Login</button>
+          <a href="#community">Community</a>
+
+          <button
+            className="login-btn"
+            onClick={() => setShowLogin(true)}
+          >
+            Login
+          </button>
         </div>
       </nav>
 
       <main>
-        <section id="home" style={styles.hero}>
-          <div style={styles.heroContent}>
-            <p style={styles.badge}>🌎 Connect Without Borders</p>
+        <section className="hero" id="home">
+          <div className="hero-content">
+            <span className="badge">🌎 Connect Globally</span>
 
-            <h1 style={styles.title}>
-              Talk to the <span style={styles.highlight}>World.</span>
+            <h1>
+              Talk to people
+              <br />
+              <span>around the world.</span>
             </h1>
 
-            <p style={styles.subtitle}>
-              GlobalTalk is a modern platform designed to help people from
-              different countries connect, communicate and build meaningful
-              conversations.
+            <p>
+              Meet people from different countries, discover new
+              cultures and have meaningful conversations.
             </p>
 
-            <div style={styles.buttons}>
-              <button style={styles.primaryButton}>
-                Get Started →
+            <div className="hero-buttons">
+              <button
+                className="primary-btn"
+                onClick={() => setShowLogin(true)}
+              >
+                Get Started
               </button>
 
-              <button style={styles.secondaryButton}>
-                Explore GlobalTalk
+              <button className="secondary-btn">
+                Explore Community
               </button>
             </div>
           </div>
-
-          <div style={styles.globe}>
-            🌍
-          </div>
         </section>
 
-        <section id="features" style={styles.features}>
-          <h2>Everything you need to connect globally</h2>
+        <section className="features" id="about">
+          <h2>Everything you need</h2>
 
-          <div style={styles.cards}>
-            <Feature
-              icon="🔐"
-              title="Secure Accounts"
-              text="Built with security and privacy in mind."
-            />
+          <div className="feature-grid">
+            <div className="feature-card">
+              <div className="icon">🌍</div>
+              <h3>Global Community</h3>
+              <p>
+                Connect with people from different countries and cultures.
+              </p>
+            </div>
 
-            <Feature
-              icon="🌎"
-              title="Global Community"
-              text="Connect with people from different countries."
-            />
+            <div className="feature-card">
+              <div className="icon">🔐</div>
+              <h3>Secure Accounts</h3>
+              <p>
+                Secure authentication and account protection.
+              </p>
+            </div>
 
-            <Feature
-              icon="💬"
-              title="Real Conversations"
-              text="Communicate and share ideas with people worldwide."
-            />
+            <div className="feature-card">
+              <div className="icon">💬</div>
+              <h3>Real Conversations</h3>
+              <p>
+                Chat and communicate with people around the world.
+              </p>
+            </div>
           </div>
-        </section>
-
-        <section id="about" style={styles.about}>
-          <h2>One platform. The whole world.</h2>
-
-          <p>
-            GlobalTalk is being built as a secure full-stack platform with
-            authentication, profiles, messaging and international users.
-          </p>
         </section>
       </main>
 
-      <footer style={styles.footer}>
-        © 2026 GlobalTalk. Built for a connected world.
+      {showLogin && (
+        <div
+          className="modal-overlay"
+          onClick={() => setShowLogin(false)}
+        >
+          <div
+            className="login-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close-btn"
+              onClick={() => setShowLogin(false)}
+            >
+              ×
+            </button>
+
+            <h2>Welcome to GlobalTalk</h2>
+
+            <p className="login-subtitle">
+              Sign in to continue
+            </p>
+
+            <button className="google-btn">
+              <span>G</span>
+              Continue with Google
+            </button>
+
+            <div className="divider">
+              <span>OR</span>
+            </div>
+
+            <input
+              type="email"
+              placeholder="Email address"
+            />
+
+            <input
+              type="password"
+              placeholder="Password"
+            />
+
+            <button className="primary-btn login-submit">
+              Sign In
+            </button>
+          </div>
+        </div>
+      )}
+
+      <footer>
+        <p>© 2026 GlobalTalk. All rights reserved.</p>
       </footer>
     </div>
   );
 }
 
-function Feature({ icon, title, text }) {
-  return (
-    <div style={styles.card}>
-      <div style={styles.icon}>{icon}</div>
-      <h3>{title}</h3>
-      <p>{text}</p>
-    </div>
-  );
-}
-
-const styles = {
-  app: {
-    minHeight: "100vh",
-    fontFamily: "Arial, sans-serif",
-    background: "#f7f9fc",
-    color: "#111827",
-  },
-
-  navbar: {
-    height: "70px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "0 8%",
-    background: "#ffffff",
-    borderBottom: "1px solid #e5e7eb",
-    position: "sticky",
-    top: 0,
-    zIndex: 10,
-  },
-
-  logo: {
-    fontSize: "22px",
-    fontWeight: "800",
-  },
-
-  navLinks: {
-    display: "flex",
-    alignItems: "center",
-    gap: "25px",
-  },
-
-  hero: {
-    minHeight: "600px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "60px 10%",
-    background: "linear-gradient(135deg, #eef6ff, #ffffff)",
-  },
-
-  heroContent: {
-    maxWidth: "650px",
-  },
-
-  badge: {
-    color: "#2563eb",
-    fontWeight: "700",
-  },
-
-  title: {
-    fontSize: "64px",
-    lineHeight: "1.05",
-    margin: "20px 0",
-  },
-
-  highlight: {
-    color: "#2563eb",
-  },
-
-  subtitle: {
-    fontSize: "19px",
-    lineHeight: "1.7",
-    color: "#4b5563",
-  },
-
-  buttons: {
-    display: "flex",
-    gap: "15px",
-    marginTop: "30px",
-  },
-
-  primaryButton: {
-    padding: "15px 25px",
-    border: "none",
-    borderRadius: "10px",
-    background: "#2563eb",
-    color: "#ffffff",
-    fontSize: "16px",
-    fontWeight: "700",
-    cursor: "pointer",
-  },
-
-  secondaryButton: {
-    padding: "15px 25px",
-    border: "1px solid #d1d5db",
-    borderRadius: "10px",
-    background: "#ffffff",
-    fontSize: "16px",
-    cursor: "pointer",
-  },
-
-  loginButton: {
-    padding: "10px 20px",
-    border: "none",
-    borderRadius: "8px",
-    background: "#111827",
-    color: "#ffffff",
-    cursor: "pointer",
-  },
-
-  globe: {
-    fontSize: "180px",
-  },
-
-  features: {
-    padding: "80px 10%",
-    textAlign: "center",
-    background: "#ffffff",
-  },
-
-  cards: {
-    display: "flex",
-    gap: "25px",
-    justifyContent: "center",
-    marginTop: "40px",
-    flexWrap: "wrap",
-  },
-
-  card: {
-    width: "280px",
-    padding: "30px",
-    borderRadius: "18px",
-    background: "#f8fafc",
-    border: "1px solid #e5e7eb",
-    textAlign: "left",
-  },
-
-  icon: {
-    fontSize: "40px",
-  },
-
-  about: {
-    padding: "80px 10%",
-    textAlign: "center",
-  },
-
-  footer: {
-    padding: "30px",
-    textAlign: "center",
-    background: "#111827",
-    color: "#ffffff",
-  },
-};
+export default App;
